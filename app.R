@@ -130,7 +130,6 @@ ui <-shinyUI(
                             ),
                             tags$hr(),
                             actionButton("evaluate", "Process", icon = icon("gear")), 
-                            actionButton("resetAll", "Reset Case and Analyst", icon=icon("recycle")),
                             column(10, h3("Predicted Ancestry:")), 
                             column(12, h3(verbatimTextOutput("aNN_pred"))), 
                             column(10, h3("Posterior Probabilities:")),
@@ -231,15 +230,7 @@ ui <-shinyUI(
 
 server<-shinyServer(function(input, output, session) {    
   
-    observeEvent(input$resetAll, {
-    shinyjs::reset("mainPanel")
-    shinyWidgets::updatePrettyCheckboxGroup(session, "Group", "Groups (select all that apply)", choices = levels(geo.origin$Group), 
-                                            shape = "round", status="warning",
-                                            outline = TRUE, fill = FALSE, thick = TRUE,
-                                            plain = FALSE, bigger = TRUE, inline = TRUE,
-                                            choiceNames = NULL, choiceValues = NULL)  
-       })
-  
+    
    refdata <- reactive({  
     input$evaluate  
     isolate({
