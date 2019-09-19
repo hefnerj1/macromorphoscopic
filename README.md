@@ -1,4 +1,4 @@
-# Macromorphoscopic Trait Analysis (MaMD Analytical 0.0.1)
+# Macromorphoscopic Trait Analysis (MaMD Analytical 0.2.0)
 
 ## _Suggestions_
 _If you are contributing suggestions or edits, please submit through the Issue tracker. I am learning. Be patient._

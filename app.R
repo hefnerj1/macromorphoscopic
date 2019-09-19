@@ -3,7 +3,7 @@
 # Purpose: Provide end-user an analytical option for MMS trait data
 # Version: 0.2 (beta)
 # Author: Joseph T. Hefner, PhD, D-ABFA
-# Last updated: 14 Nov 2018 (jth)
+# Last updated: 19 Sep 2019 (jth)
 # Updates: 
 # 1. 11 Oct 2018: jth initiated code
 # 2. 12 Oct 2018: identifying major issues...I am an idiot.
@@ -17,6 +17,7 @@
 #10. 14 Nov 2018: changed order of variables to alphabetical
 #11. 03 Dec 2018: reduced reference data (considerably) to exclude problematic African and Guatamalen samples
 #12. 03 Dec 2018: updated aNN model
+#13. 19 Sep 2019: removed "reset" button to address crashing issue identified by jjlynch2
 # Notes:
 #
 #
@@ -130,7 +131,6 @@ ui <-shinyUI(
                             ),
                             tags$hr(),
                             actionButton("evaluate", "Process", icon = icon("gear")), 
-                            actionButton("resetAll", "Reset Case and Analyst", icon=icon("recycle")),
                             column(10, h3("Predicted Ancestry:")), 
                             column(12, h3(verbatimTextOutput("aNN_pred"))), 
                             column(10, h3("Posterior Probabilities:")),
@@ -231,15 +231,7 @@ ui <-shinyUI(
 
 server<-shinyServer(function(input, output, session) {    
   
-    observeEvent(input$resetAll, {
-    shinyjs::reset("mainPanel")
-    shinyWidgets::updatePrettyCheckboxGroup(session, "Group", "Groups (select all that apply)", choices = levels(geo.origin$Group), 
-                                            shape = "round", status="warning",
-                                            outline = TRUE, fill = FALSE, thick = TRUE,
-                                            plain = FALSE, bigger = TRUE, inline = TRUE,
-                                            choiceNames = NULL, choiceValues = NULL)  
-       })
-  
+    
    refdata <- reactive({  
     input$evaluate  
     isolate({
