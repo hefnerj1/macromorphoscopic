@@ -18,8 +18,9 @@
 #11. 03 Dec 2018: reduced reference data (considerably) to exclude problematic African and Guatamalen samples
 #12. 03 Dec 2018: updated aNN model
 #13. 19 Sep 2019: removed "reset" button to address crashing issue identified by jjlynch2
+#14. 13 Dec 2019: Addressing a number of issues
 # Notes:
-#
+# 
 #
 #
 #
