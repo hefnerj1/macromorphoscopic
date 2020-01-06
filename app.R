@@ -48,8 +48,6 @@ library(shinyLP)
 library(shinycssloaders)
 library(png)
 library(shinyWidgets)
-set.seed(1234)
-digits=4
 options(scipen = 999)
 #############################################################################################################################
 ui <-shinyUI(
@@ -73,7 +71,7 @@ ui <-shinyUI(
                tabPanel("The MaMD", icon = icon("home"),
                         
                         jumbotron("Macromorphoscopic Analysis", "MaMD - Analytical Program v. 0.2",
-                                  buttonLabel = "Check out the new photographic atlas detailing MMS traits"),
+                                  buttonLabel = "Check out the photographic atlas detailing MMS traits"),
                         fluidRow(
                           column(6, panel_div(class_type = "primary", panel_title = "The MaMD",
                                               content = "MaMDAnalytical uses an artificial neural network (aNN) to classify an unknown cranium into a reference group. The reference data are housed in the Macromorphoscopic Databank, established in 2018 by Hefner (2018). To analyze your case, click on the Analysis tab above.")),
